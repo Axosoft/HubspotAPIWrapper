@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Json;
 using System.Linq;
-using Microsoft.Security.Application;
 
 namespace HubspotAPIWrapper
 {
