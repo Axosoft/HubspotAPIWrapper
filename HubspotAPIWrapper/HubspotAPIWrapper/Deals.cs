@@ -7,7 +7,7 @@ using System.Json;
 
 namespace HubspotAPIWrapper
 {
-    class Deals : BaseClass
+    public class Deals : BaseClass
     {
         protected object DealsApiVersion = "v1";
 

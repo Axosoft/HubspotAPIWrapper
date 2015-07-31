@@ -59,6 +59,7 @@
     <Compile Include="ContactLists.cs" />
     <Compile Include="ContactProperty.cs" />
     <Compile Include="Contacts.cs" />
+    <Compile Include="Deals.cs" />
     <Compile Include="Email.cs" />
     <Compile Include="EmailEvents.cs" />
     <Compile Include="EnterpriseEvents.cs" />
