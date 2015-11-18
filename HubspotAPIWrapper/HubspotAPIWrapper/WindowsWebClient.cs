@@ -36,13 +36,18 @@ namespace HubspotAPIWrapper
                 using (var response = (HttpWebResponse) e.Response)
                 {
                     Console.WriteLine("Error code: {0}", response.StatusCode);
+                    string responseText = string.Empty;
                     Stream responseStream = response.GetResponseStream();
                     if (responseStream != null)
                     {
                         var reader = new StreamReader(responseStream);
-                        string responseText = reader.ReadToEnd();
+                        responseText = reader.ReadToEnd();
                         Console.WriteLine(responseText);
                     }
+                    Axosoft.Common.ExceptionManagement.ExceptionManager.Publish(e, new System.Collections.Generic.Dictionary<string, string> { 
+                        { "uri", uri },
+                        { "response", responseText }
+                    });
                 }
             }
 
