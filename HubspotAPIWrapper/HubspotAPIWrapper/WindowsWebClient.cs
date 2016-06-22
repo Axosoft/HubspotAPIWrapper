@@ -23,31 +23,43 @@ namespace HubspotAPIWrapper
 
             try
             {
-                var response = (HttpWebResponse) request.GetResponse();
-                Stream responseStream = response.GetResponseStream();
-                if (responseStream != null)
+                using (var response = (HttpWebResponse)request.GetResponse())
                 {
-                    var streamReader = new StreamReader(responseStream);
-                    return streamReader.ReadToEnd();
+                    Stream responseStream = response.GetResponseStream();
+                    if (responseStream != null)
+                    {
+                        var streamReader = new StreamReader(responseStream);
+                        return streamReader.ReadToEnd();
+                    }
                 }
             }
             catch (WebException e)
             {
                 using (var response = (HttpWebResponse) e.Response)
                 {
-                    Console.WriteLine("Error code: {0}", response.StatusCode);
-                    string responseText = string.Empty;
-                    Stream responseStream = response.GetResponseStream();
-                    if (responseStream != null)
+                    if (response == null)
                     {
-                        var reader = new StreamReader(responseStream);
-                        responseText = reader.ReadToEnd();
-                        Console.WriteLine(responseText);
+                        Axosoft.Common.ExceptionManagement.ExceptionManager.Publish(e, new System.Collections.Generic.Dictionary<string, string> {
+                            { "uri", uri },
+                            { "response", "null" }
+                        });
                     }
-                    Axosoft.Common.ExceptionManagement.ExceptionManager.Publish(e, new System.Collections.Generic.Dictionary<string, string> { 
-                        { "uri", uri },
-                        { "response", responseText }
-                    });
+                    else
+                    {
+                        Console.WriteLine("Error code: {0}", response.StatusCode);
+                        string responseText = string.Empty;
+                        Stream responseStream = response.GetResponseStream();
+                        if (responseStream != null)
+                        {
+                            var reader = new StreamReader(responseStream);
+                            responseText = reader.ReadToEnd();
+                            Console.WriteLine(responseText);
+                        }
+                        Axosoft.Common.ExceptionManagement.ExceptionManager.Publish(e, new System.Collections.Generic.Dictionary<string, string> {
+                            { "uri", uri },
+                            { "response", responseText }
+                        });
+                    }
                 }
             }
 
