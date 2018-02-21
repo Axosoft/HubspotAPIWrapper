@@ -81,7 +81,7 @@ namespace HubspotAPIWrapper
             {
                 if (returnVal.Length > 0)
                 {
-                    return new JsonObject(JsonValue.Parse(returnVal));
+                    return (JsonObject)JsonObject.Parse(returnVal);
                 }
             }
 

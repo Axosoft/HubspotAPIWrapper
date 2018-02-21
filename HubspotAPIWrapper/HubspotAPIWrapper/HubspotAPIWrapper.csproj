@@ -32,19 +32,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AntiXssLibrary">
-      <HintPath>..\packages\AntiXSS.4.2.1\lib\net40\AntiXssLibrary.dll</HintPath>
+    <Reference Include="AntiXssLibrary, Version=1.5.0.0, Culture=neutral, PublicKeyToken=bcdc0d0c766dd6e4">
+      <HintPath>..\packages\AntiXssLibrary.1.0.0\lib\AntiXssLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Axosoft.Common.ExceptionManagement">
-      <HintPath>..\..\..\Assembly References\Axosoft.Common.ExceptionManagement.dll</HintPath>
+      <HintPath>..\..\..\Internal\ExceptionManagementBlock\bin\Release\Axosoft.Common.ExceptionManagement.dll</HintPath>
     </Reference>
-    <Reference Include="HtmlSanitizationLibrary">
-      <HintPath>..\packages\AntiXSS.4.2.1\lib\net40\HtmlSanitizationLibrary.dll</HintPath>
+    <Reference Include="HtmlSanitizationLibrary, Version=4.0.0.0, Culture=neutral, PublicKeyToken=d127efab8a9c114f, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlSanitizationLibrary.1.0.0\lib\HtmlSanitizationLibrary.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Json">
-      <HintPath>..\..\..\packages\System.Json.4.0.20126.16343\lib\net40\System.Json.dll</HintPath>
+    <Reference Include="System.Json, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Json.4.4.0\lib\netstandard1.0\System.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Runtime.Serialization" />
